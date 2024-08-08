@@ -73,3 +73,57 @@ LinkedList.prototype.deleteLastNode = function () {
 
   secondLastNode.next = null
 }
+
+//Delete a key given node of linked list
+LinkedList.prototype.deleteGivenKey = function (key) {
+  if (!this.head) {
+    console.log('Head is empty')
+    return
+  }
+
+  if (this.head.data === key) {
+    this.head = this.head.next
+    return
+  }
+
+  let currentNode = this.head
+
+  while (currentNode.next !== null) {
+    if (currentNode.next.data === key) {
+      currentNode.next = currentNode.next.next
+      return
+    }
+    currentNode = currentNode.next
+  }
+
+  console.log('Key is not present in a linked list')
+}
+
+//Search Linked list given key
+LinkedList.prototype.searchLinkedList = function (key) {
+  let currentNode = this.head
+  while (currentNode) {
+    if (currentNode.data === key) {
+      return true
+    }
+    currentNode = currentNode.next
+  }
+  return false
+}
+
+//travelsal or print a linkedlist
+LinkedList.prototype.traversal = function () {
+  let currentNode = this.head
+
+  let linkedlistdata = []
+  while (currentNode) {
+    linkedlistdata.push(currentNode.data)
+    currentNode = currentNode.next
+  }
+
+  if (linkedlistdata) {
+    console.log(linkedlistdata)
+  } else {
+    console.log('List is bank')
+  }
+}
