@@ -127,3 +127,21 @@ LinkedList.prototype.traversal = function () {
     console.log('List is bank')
   }
 }
+
+linkedlistdata.prototype.reverselinkedlist = function () {
+  if (!this.head) {
+    return
+  }
+  let current = this.head
+  let next = null
+  let prev = null
+
+  while (current) {
+    next = current.next
+    current.next = prev
+    prev = current
+    current = next
+  }
+
+  this.head = prev
+}

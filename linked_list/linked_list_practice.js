@@ -121,3 +121,21 @@ LinkedList.prototype.printLinkedlist = function () {
     console.log(linkedlistData)
   }
 }
+
+LinkedList.prototype.reverseLinkedlistDat = function () {
+  if (!this.head) {
+    return
+  }
+  let current = this.head
+  let prev = null
+  let next = null
+
+  while (current) {
+    next = current.next
+    current.next = prev
+    prev = current
+    current = next
+  }
+
+  this.head = prev
+}
